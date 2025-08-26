@@ -1,6 +1,4 @@
 import './App.css';
-import { signOut } from 'firebase/auth';
-import { auth } from './api/firebase';
 import { useAuthContext } from './context/AuthContext';
 import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './pages/ProtectedRoute';

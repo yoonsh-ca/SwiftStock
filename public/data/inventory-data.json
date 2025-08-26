@@ -1,0 +1,212 @@
+[
+  {
+    "productName": "BTS - MAP OF THE SOUL : 7",
+    "cost": 15.2,
+    "price": 25.5,
+    "stock": 25,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "BLACKPINK - BORN PINK",
+    "cost": 14.8,
+    "price": 24.9,
+    "stock": 18,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "Stray Kids - 5-STAR",
+    "cost": 16.0,
+    "price": 26.0,
+    "stock": 35,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "SEVENTEEN - FML",
+    "cost": 15.5,
+    "price": 25.0,
+    "stock": 42,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "ITZY - KILL MY DOUBT",
+    "cost": 13.9,
+    "price": 23.5,
+    "stock": 15,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "TWICE - READY TO BE",
+    "cost": 14.2,
+    "price": 24.0,
+    "stock": 20,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "TOMORROW X TOGETHER - The Name Chapter: FREEFALL",
+    "cost": 15.8,
+    "price": 25.8,
+    "stock": 28,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "NCT 127 - 2 Baddies",
+    "cost": 16.5,
+    "price": 27.0,
+    "stock": 12,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "LE SSERAFIM - UNFORGIVEN",
+    "cost": 14.5,
+    "price": 24.2,
+    "stock": 30,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "aespa - Drama",
+    "cost": 13.5,
+    "price": 23.0,
+    "stock": 17,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "BTS Official ARMY BOMB (VER.3)",
+    "cost": 22.0,
+    "price": 45.0,
+    "stock": 10,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "BLACKPINK Official Light Stick (VER.2)",
+    "cost": 20.5,
+    "price": 42.0,
+    "stock": 8,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "SEVENTEEN Official Carat Bong",
+    "cost": 21.0,
+    "price": 43.0,
+    "stock": 12,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "Stray Kids Official Light Stick",
+    "cost": 22.5,
+    "price": 46.0,
+    "stock": 6,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "BTS MAP OF THE SOUL TOUR T-shirt",
+    "cost": 18.0,
+    "price": 35.0,
+    "stock": 20,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "BLACKPINK IN YOUR AREA Concert Hoodie",
+    "cost": 25.0,
+    "price": 50.0,
+    "stock": 14,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "BTS Official Character BT21 Plush (RJ)",
+    "cost": 12.0,
+    "price": 25.0,
+    "stock": 30,
+    "category": "Plush"
+  },
+  {
+    "productName": "Stray Kids SKZOO Plush (Quokka)",
+    "cost": 13.5,
+    "price": 28.0,
+    "stock": 22,
+    "category": "Plush"
+  },
+  {
+    "productName": "NCT Dreamy Plush (Doyoung)",
+    "cost": 11.5,
+    "price": 24.0,
+    "stock": 15,
+    "category": "Plush"
+  },
+  {
+    "productName": "BTS - The Planet Album",
+    "cost": 10.0,
+    "price": 20.0,
+    "stock": 50,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "NewJeans - OMG",
+    "cost": 13.0,
+    "price": 22.5,
+    "stock": 38,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "IVE - I'VE MINE",
+    "cost": 14.0,
+    "price": 23.8,
+    "stock": 27,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "NMIXX - A Midsummer NMIXX's Dream",
+    "cost": 12.8,
+    "price": 21.5,
+    "stock": 19,
+    "category": "K-Pop Album"
+  },
+  {
+    "productName": "BTS Photocard Pack (Butter)",
+    "cost": 4.5,
+    "price": 10.0,
+    "stock": 50,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "ITZY Official Photobook",
+    "cost": 8.0,
+    "price": 18.0,
+    "stock": 30,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "TWICE Official Postcard Set",
+    "cost": 5.0,
+    "price": 12.0,
+    "stock": 45,
+    "category": "K-Pop Merch"
+  },
+  {
+    "productName": "BT21 Character Pen Set",
+    "cost": 6.0,
+    "price": 15.0,
+    "stock": 60,
+    "category": "Stationary"
+  },
+  {
+    "productName": "Stray Kids SKZOO Notebook",
+    "cost": 4.0,
+    "price": 10.0,
+    "stock": 40,
+    "category": "Stationary"
+  },
+  {
+    "productName": "NCT 127 Sticker Set",
+    "cost": 3.5,
+    "price": 8.0,
+    "stock": 75,
+    "category": "Stationary"
+  },
+  {
+    "productName": "Le Sserafim Official Keyring",
+    "cost": 7.0,
+    "price": 18.0,
+    "stock": 25,
+    "category": "etc"
+  }
+]
