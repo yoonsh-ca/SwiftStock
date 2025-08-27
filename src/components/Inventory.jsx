@@ -1,31 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { database } from '../api/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, database } from '../api/firebase';
 
 export default function Inventory() {
   const [items, setItems] = useState([]);
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        // get reference on collection named 'items'
-        const itemsRef = collection(database, 'items');
-        // get all docs about collection named 'items', even actual data
-        const querySnapshot = await getDocs(itemsRef);
-
-        // Extract only data from snapshot, and replace to array
-        const itemsList = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setItems(itemsList);
-      } catch (error) {
-        console.error('Failed to load data: ', error);
+    // Check whether user log in or not
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      user ? setUserId(user.uid) : setUserId(null);
+      if (user) {
+        setUserId(user.uid);
       }
-    };
-
-    fetchItems();
+    });
+    return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (userId) {
+      const fetchItems = async () => {
+        try {
+          // get reference on collection named 'items'
+          const userId = auth.currentUser.uid;
+          const itemsRef = collection(database, 'users', userId, 'items');
+          // get all docs about collection named 'items', even actual data
+          const querySnapshot = await getDocs(itemsRef);
+
+          // Extract only data from snapshot, and replace to array
+          const itemsList = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setItems(itemsList);
+        } catch (error) {
+          console.error('Failed to load data: ', error);
+        }
+      };
+
+      fetchItems();
+    }
+  }, [userId]);
 
   return (
     <div>
