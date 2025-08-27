@@ -1,18 +1,40 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from '../api/firebase';
+import { auth, database, googleProvider } from '../api/firebase';
 import { useNavigate } from 'react-router-dom';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const createUserDoc = async (user) => {
+    const userDocRef = doc(database, 'users', user.uid);
+    const userDoc = await getDoc(userDocRef);
+
+    if (!userDoc.exists()) {
+      await setDoc(userDocRef, {
+        email: user.email,
+        createdAt: new Date(),
+      });
+      console.log('User document created');
+    }
+  };
+
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      console.log('Success!');
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      await createUserDoc(user);
+
+      alert('✅Sign up with email success!');
       navigate('/dashboard');
     } catch (error) {
       console.error('Error: ', error.message);
@@ -21,8 +43,12 @@ export default function Signup() {
 
   const handleGoogleSignup = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
-      console.log('Google Sign up Success!');
+      const userCredential = await signInWithPopup(auth, googleProvider);
+      const user = userCredential.user;
+
+      await createUserDoc(user);
+
+      alert('✅Google Sign up success!');
       navigate('/dashboard');
     } catch (error) {
       console.error('Google Sign up error: ', error.message);

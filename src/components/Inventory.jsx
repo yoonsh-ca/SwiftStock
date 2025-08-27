@@ -47,6 +47,7 @@ export default function Inventory() {
         productName,
         cost: Number(cost),
         price: Number(price),
+        stock: Number(stock),
         category,
         createdAt: new Date(),
       };
@@ -179,6 +180,9 @@ export default function Inventory() {
           <div key={item.id}>
             <p>{item.productName}</p>
             <p>Inventory: {item.stock}</p>
+            <p>Cost: ${item.cost.toLocaleString()}</p>
+            <p>Price: ${item.price.toLocaleString()}</p>
+            <p>Category: {item.category}</p>
           </div>
         ))
       ) : (
