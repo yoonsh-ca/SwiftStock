@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { auth, database } from '../api/firebase';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 
 export default function ItemDetail() {
   const { id } = useParams();
@@ -99,6 +99,24 @@ export default function ItemDetail() {
     }
   };
 
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm('Do you want to delete this item?');
+    if (!confirmDelete) return;
+
+    try {
+      const userId = auth.currentUser.uid;
+      const itemDocRef = doc(database, 'users', userId, 'items', id);
+
+      await deleteDoc(itemDocRef);
+
+      alert('✅Item deleted successfully');
+      navigate('/inventory');
+    } catch (error) {
+      console.error('Failed to delete: ', error);
+      alert('Error occurs while data delete');
+    }
+  };
+
   if (loading) return <p>Loading details of item</p>;
   if (error) return <p>{error}</p>;
 
@@ -119,6 +137,8 @@ export default function ItemDetail() {
           </button>
           <button
             type='button'
+            onClick={handleDelete}
+            disabled={isChanged}
             style={{
               backgroundColor: isChanged ? 'gray' : 'red',
               color: 'white',
