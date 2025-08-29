@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, database, googleProvider } from '../api/firebase';
 import { useNavigate } from 'react-router-dom';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { useAuthContext } from '../context/AuthContext';
 
 export default function Signup() {
+  const { user } = useAuthContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) navigate('/inventory');
+  }, [user, navigate]);
 
   const createUserDoc = async (user) => {
     const userDocRef = doc(database, 'users', user.uid);

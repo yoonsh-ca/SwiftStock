@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, database } from '../api/firebase';
+import { Link } from 'react-router-dom';
 
 export default function Inventory() {
   const [items, setItems] = useState([]);
@@ -176,15 +177,17 @@ export default function Inventory() {
       </div>
 
       {items.length > 0 ? (
-        items.map((item) => (
-          <div key={item.id}>
-            <p>{item.productName}</p>
-            <p>Inventory: {item.stock}</p>
-            <p>Cost: ${item.cost.toLocaleString()}</p>
-            <p>Price: ${item.price.toLocaleString()}</p>
-            <p>Category: {item.category}</p>
-          </div>
-        ))
+        <div className='item-list'>
+          {items.map((item) => (
+            <div key={item.id}>
+              <Link to={`/inventory/${item.id}`}>{item.productName}</Link>
+              <p>Inventory: {item.stock}</p>
+              <p>Cost: ${item.cost.toLocaleString()}</p>
+              <p>Price: ${item.price.toLocaleString()}</p>
+              <p>Category: {item.category}</p>
+            </div>
+          ))}
+        </div>
       ) : (
         <p>There's no stock for now</p>
       )}

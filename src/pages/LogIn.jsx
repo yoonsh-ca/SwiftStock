@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../api/firebase';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../context/AuthContext';
 
 export default function LogIn() {
+  const { user } = useAuthContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) navigate('/inventory');
+  }, [user, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log('Login Success!');
+      navigate('/inventory');
     } catch (error) {
       console.error('Login error: ', error.message);
     }
@@ -21,6 +29,7 @@ export default function LogIn() {
     try {
       await signInWithPopup(auth, googleProvider);
       console.log('Google login success!');
+      navigate('/inventory');
     } catch (error) {
       console.error('Google login error: ', error.message);
     }
